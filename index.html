@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POSSIBLEST | Discover. Innovate. Transform.</title>
+    <title>Possiblest | Strategic Consulting & Innovation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,15 +15,14 @@
         }
 
         :root {
-            --primary-navy: #0f172a;
-            --accent-teal: #0d9488;
-            --accent-gold: #d4af37;
-            --text-dark: #1e293b;
-            --text-medium: #64748b;
-            --text-light: #94a3b8;
-            --bg-white: #ffffff;
-            --bg-light: #f8fafc;
-            --bg-lighter: #fafafa;
+            --midnight-navy: #0A2540;
+            --gold: #C9A24D;
+            --gold-hover: #B48E3A;
+            --bg-page: #F9FAFB;
+            --bg-card: #FFFFFF;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --border: #E5E7EB;
         }
 
         html {
@@ -32,9 +31,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
+            color: var(--text-primary);
             line-height: 1.7;
-            background: var(--bg-white);
+            background: var(--bg-page);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Navigation */
@@ -42,409 +43,372 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container.scrolled {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border);
         }
 
         nav {
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 3rem;
+            padding: 1.25rem 3rem;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-navy);
+            color: var(--midnight-navy);
             letter-spacing: 0.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-secondary);
             font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-teal);
-            transition: width 0.3s ease;
+            font-size: 0.9375rem;
+            letter-spacing: 0.01em;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent-teal);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            color: var(--midnight-navy);
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-navy) 0%, #1e293b 100%);
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(13, 148, 136, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+            background: var(--midnight-navy);
+            padding: 8rem 2rem 6rem;
         }
 
         .hero-content {
             text-align: center;
             color: white;
-            z-index: 1;
             max-width: 900px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3.75rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-            line-height: 1.2;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            letter-spacing: 8px;
-            font-weight: 300;
+            font-size: 1.125rem;
+            letter-spacing: 0.15em;
+            font-weight: 400;
             margin-bottom: 1rem;
-            color: var(--accent-teal);
+            color: var(--gold);
+            text-transform: uppercase;
         }
 
         .hero-tagline {
-            font-size: 1.3rem;
-            font-weight: 300;
-            letter-spacing: 3px;
+            font-size: 1.125rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
             margin-bottom: 3rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1.2rem 3rem;
-            background: var(--accent-teal);
-            color: white;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--midnight-navy);
             text-decoration: none;
             font-weight: 600;
-            letter-spacing: 1px;
-            border-radius: 50px;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
+            letter-spacing: 0.02em;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-size: 0.9375rem;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(13, 148, 136, 0.4);
-            background: #0f766e;
+            background: var(--gold-hover);
+            transform: translateY(-1px);
         }
 
         /* About Section */
         .about {
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 8rem 3rem;
+            padding: 7rem 3rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
+            gap: 5rem;
+            align-items: start;
         }
 
         .about-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--primary-navy);
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--midnight-navy);
             margin-bottom: 2rem;
-            line-height: 1.3;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
         }
 
         .about-content p {
-            font-size: 1.1rem;
-            color: var(--text-medium);
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         .about-highlights {
-            background: var(--bg-light);
-            padding: 3rem;
-            border-radius: 20px;
-            border-left: 4px solid var(--accent-teal);
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--gold);
         }
 
         .highlight-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
+            align-items: flex-start;
+            margin-bottom: 1.75rem;
+            gap: 1.25rem;
+        }
+
+        .highlight-item:last-child {
+            margin-bottom: 0;
         }
 
         .highlight-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--accent-teal);
+            width: 2.25rem;
+            height: 2.25rem;
+            background: transparent;
+            border: 2px solid var(--gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-right: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.875rem;
             flex-shrink: 0;
+            margin-top: 0.125rem;
         }
 
         .highlight-text {
             font-weight: 500;
-            color: var(--text-dark);
-            font-size: 1.05rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
-        /* Services Section */
-        .services {
-            background: var(--bg-light);
-            padding: 8rem 3rem;
-        }
-
-        .services-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--primary-navy);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-medium);
-            font-size: 1.2rem;
-            margin-bottom: 5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-teal), var(--accent-gold));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--accent-teal), #0f766e);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            transition: all 0.4s ease;
-        }
-
-        .service-card:hover .service-icon {
-            transform: rotate(360deg) scale(1.1);
-        }
-
-        .service-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--primary-navy);
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card p {
-            color: var(--text-medium);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .service-link {
-            color: var(--accent-teal);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
-        }
-
-        .service-link:hover {
-            gap: 1rem;
-        }
-
-        /* Vision Mission Section */
+        /* Vision Mission Section - Now part of About */
         .vision-mission {
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 8rem 3rem;
+            padding: 0 3rem 7rem 3rem;
         }
 
         .vm-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 4rem;
+            gap: 2.5rem;
         }
 
         .vm-card {
-            background: var(--primary-navy);
-            padding: 4rem;
-            border-radius: 20px;
+            background: var(--midnight-navy);
+            padding: 3rem;
+            border-radius: 6px;
             color: white;
             position: relative;
-            overflow: hidden;
         }
 
         .vm-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(13, 148, 136, 0.1) 0%, transparent 70%);
-            animation: pulse 6s ease-in-out infinite;
-        }
-
-        .vm-card-content {
-            position: relative;
-            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--gold);
         }
 
         .vm-label {
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            color: var(--accent-gold);
+            font-size: 0.8125rem;
+            letter-spacing: 0.1em;
+            color: var(--gold);
             margin-bottom: 1.5rem;
             font-weight: 600;
+            text-transform: uppercase;
         }
 
         .vm-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             line-height: 1.5;
+            letter-spacing: -0.01em;
         }
 
         .vm-card p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .quote-mark {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            color: var(--accent-teal);
-            opacity: 0.3;
             position: absolute;
-            top: 2rem;
-            right: 2rem;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 5rem;
+            color: rgba(201, 162, 77, 0.15);
+            line-height: 1;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--bg-card);
+            padding: 7rem 3rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .services-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--midnight-navy);
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--bg-page);
+            padding: 2.5rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border);
+        }
+
+        .service-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--gold);
+        }
+
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
+            background: transparent;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--midnight-navy);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .service-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.2s ease;
+        }
+
+        .service-link:hover {
+            gap: 0.75rem;
+            color: var(--gold-hover);
         }
 
         /* Contact Section */
         .contact {
-            background: var(--bg-light);
-            padding: 8rem 3rem;
+            background: var(--bg-card);
+            padding: 7rem 3rem;
+            border-top: 1px solid var(--border);
         }
 
         .contact-container {
@@ -454,47 +418,49 @@
         }
 
         .contact-container h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--primary-navy);
-            margin-bottom: 2rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--midnight-navy);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
         }
 
         .contact-container p {
-            font-size: 1.2rem;
-            color: var(--text-medium);
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
             margin-bottom: 3rem;
+            line-height: 1.6;
         }
 
         .contact-email {
             display: inline-block;
-            padding: 1.5rem 4rem;
-            background: white;
-            color: var(--accent-teal);
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--midnight-navy);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.3rem;
-            border-radius: 50px;
-            border: 2px solid var(--accent-teal);
-            transition: all 0.4s ease;
+            font-size: 1.125rem;
+            border-radius: 4px;
+            border: 2px solid var(--midnight-navy);
+            transition: all 0.2s ease;
         }
 
         .contact-email:hover {
-            background: var(--accent-teal);
+            background: var(--midnight-navy);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(13, 148, 136, 0.3);
+            transform: translateY(-1px);
         }
 
         /* Footer */
         footer {
-            background: var(--primary-navy);
+            background: var(--midnight-navy);
             color: white;
             padding: 4rem 3rem 2rem;
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
@@ -503,23 +469,26 @@
         }
 
         .footer-brand {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--accent-teal);
+            color: var(--gold);
         }
 
         .footer-tagline {
             color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
+            line-height: 1.7;
+            font-size: 0.9375rem;
         }
 
         .footer-section h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-gold);
+            font-size: 0.875rem;
+            margin-bottom: 1.25rem;
+            color: var(--gold);
             font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .footer-links {
@@ -527,27 +496,28 @@
         }
 
         .footer-links li {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
+            font-size: 0.9375rem;
         }
 
         .footer-links a:hover {
-            color: var(--accent-teal);
+            color: white;
         }
 
         .footer-bottom {
-            max-width: 1400px;
+            max-width: 1280px;
             margin: 0 auto;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+            font-size: 0.875rem;
         }
 
         /* Responsive Design */
@@ -557,7 +527,7 @@
             }
 
             .hero-title {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
 
             .about {
@@ -585,24 +555,28 @@
             }
 
             .logo {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
             }
 
             .nav-links {
                 display: none;
             }
 
+            .hero {
+                padding: 6rem 1.5rem 4rem;
+            }
+
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
-                letter-spacing: 4px;
+                font-size: 0.9375rem;
+                letter-spacing: 0.1em;
             }
 
             .hero-tagline {
-                font-size: 1rem;
+                font-size: 0.9375rem;
             }
 
             .about, .services, .vision-mission, .contact {
@@ -625,8 +599,8 @@
         /* Scroll animations */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .fade-in.visible {
@@ -639,12 +613,11 @@
     <!-- Navigation -->
     <div class="nav-container" id="navbar">
         <nav>
-            <div class="logo">POSSIBLEST</div>
+            <div class="logo">Possiblest</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#vision">Vision</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -653,9 +626,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1 class="hero-title">THE POSSIBLEST COMPANY</h1>
-            <p class="hero-subtitle">DISCOVER | INNOVATE | TRANSFORM</p>
-            <p class="hero-tagline">WE ARE HERE TO CREATE WITH YOU</p>
+            <h1 class="hero-title">The Possiblest Company</h1>
+            <p class="hero-subtitle">Discover | Innovate | Transform</p>
+            <p class="hero-tagline">We Are Here to Create With You</p>
             <a href="#contact" class="cta-button">Let's Create Together</a>
         </div>
     </section>
@@ -688,6 +661,23 @@
         </div>
     </section>
 
+    <!-- Vision & Mission Section (Part of About) -->
+    <section class="vision-mission">
+        <div class="vm-grid">
+            <div class="vm-card fade-in">
+                <span class="quote-mark">"</span>
+                <div class="vm-label">Our Vision</div>
+                <h3>To be a Trusted Partner in discovering innovative pathways and transforming possibilities into a thriving future, in Life, Education, and Business.</h3>
+            </div>
+
+            <div class="vm-card fade-in">
+                <span class="quote-mark">"</span>
+                <div class="vm-label">Our Mission</div>
+                <p>We empower organizations to discover new possibilities, innovate models and solutions, to transform challenges into growth. Through a collaborative partnership, we help create your Possiblest tomorrow, leveraging technology, human-centric culture, and creative learning methods.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="services-container">
@@ -696,47 +686,60 @@
             
             <div class="services-grid">
                 <div class="service-card fade-in">
-                    <div class="service-icon">💼</div>
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
                     <h3>Business & Technology</h3>
-                    <p>We help businesses harness the power of technology to drive innovation, optimize operations, and achieve strategic goals through tailored consulting solutions.</p>
-                    <a href="#" class="service-link">Learn More →</a>
+                    <p>Possiblest provides strategic consulting services, helping organizations navigate the ever-changing landscape by leveraging Human-Centric approach and technology to thrive and grow. We focus on digital transformation, operational efficiency, enterprise strategies alignment with business goals and organization culture.</p>
+                    <ul>
+                        <li>Technology Transformations</li>
+                        <li>Automation and AI adoption</li>
+                        <li>Data Insights and Analytics</li>
+                        <li>Cloud Infra and Applications</li>
+                        <li>Enterprise IT footprint rationalization and Integrations</li>
+                        <li>Business Demand, Strategy and Scalability</li>
+                        <li>Innovation Culture and Quality</li>
+                        <li>Enterprise Program and Supplier Management</li>
+                        <li>Sustainability and Impact on Society</li>
+                    </ul>
                 </div>
 
                 <div class="service-card fade-in">
-                    <div class="service-icon">📚</div>
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
                     <h3>Education</h3>
-                    <p>We inspire educational institutions to unearth creativity and fun in learning, transforming traditional approaches into engaging, effective learning experiences.</p>
-                    <a href="#" class="service-link">Learn More →</a>
+                    <p>At Possiblest, we partner with educational institutions to discover and enhance learning and teaching environment, through science-backed concepts. Our goal is to make learning creative, enjoyable and engaging by implementing tailored models that both teachers and students look forward to. Our models cater to diverse learning styles unique to each child. Our approach not only make learning enjoyable and fun, but transform institutions and empowers students with tools to thrive as their future unfolds.</p>
+                    <ul>
+                        <li>Students, Teachers & Parents Workshop (Schools, Universities)</li>
+                        <li>School Syllabus Planning</li>
+                        <li>Creative Writing</li>
+                        <li>Story-telling</li>
+                        <li>Life and Soft skills</li>
+                    </ul>
                 </div>
 
                 <div class="service-card fade-in">
-                    <div class="service-icon">🎯</div>
-                    <h3>Coaching</h3>
-                    <p>Our executive coaching services empower leaders to unlock their potential, navigate challenges, and drive organizational success with confidence.</p>
-                    <a href="#" class="service-link">Learn More →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vision & Mission Section -->
-    <section class="vision-mission" id="vision">
-        <h2 class="section-title fade-in">Our Purpose</h2>
-        <div class="vm-grid">
-            <div class="vm-card fade-in">
-                <span class="quote-mark">"</span>
-                <div class="vm-card-content">
-                    <div class="vm-label">OUR VISION</div>
-                    <h3>To be a Trusted Partner in discovering innovative pathways and transforming possibilities into a thriving future, in Life, Education, and Business.</h3>
-                </div>
-            </div>
-
-            <div class="vm-card fade-in">
-                <span class="quote-mark">"</span>
-                <div class="vm-card-content">
-                    <div class="vm-label">OUR MISSION</div>
-                    <h3>We empower organizations to discover new possibilities, innovate models and solutions, to transform challenges into growth.</h3>
-                    <p>Through a collaborative partnership, we help create your Possiblest tomorrow, leveraging technology, human-centric culture, and creative learning methods.</p>
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Coaching & Leadership Development</h3>
+                    <p>Through leadership coaching, Possiblest helps executives and individuals see inward and discover secrets to navigate complex challenges in work or life. Our coaching models are designed to foster growth mindset, progressive thinking, innovative approaches, adaptive leadership to discover new possibilities and thrive in this digital age.</p>
+                    <ul>
+                        <li>Executive Leadership</li>
+                        <li>Life</li>
+                        <li>Children</li>
+                        <li>Wellness</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -755,7 +758,7 @@
     <footer>
         <div class="footer-content">
             <div>
-                <div class="footer-brand">POSSIBLEST</div>
+                <div class="footer-brand">Possiblest</div>
                 <p class="footer-tagline">Discover. Innovate. Transform.<br>Creating your Possiblest tomorrow.</p>
             </div>
             <div class="footer-section">
@@ -764,7 +767,6 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#vision">Vision</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
