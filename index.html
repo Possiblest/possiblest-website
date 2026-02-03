@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Possiblest | Strategic Consulting - Discover Innovate Transform</title>
-    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <title>Possiblest | Strategic Consulting & Innovation</title>
+    <link rel="icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -39,48 +39,69 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Navigation */
-        .nav-container {
+        /* Navigation - Mercedes-Benz Style */
+        
+        /* Logo bar - always visible, full width, logo centered */
+        .logo-bar {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1001;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-bar img {
+            height: 40px;
+            width: auto;
+        }
+
+        /* Menu bar - slides up on scroll down */
+        .nav-container {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            border-top: 1px solid rgba(229, 231, 235, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-container.hide {
+            transform: translateY(-100%);
         }
 
         nav {
             max-width: 1280px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 1.25rem 3rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
+            padding: 1rem 3rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.9375rem;
-            letter-spacing: 0.01em;
+            color: #1a1a1a;
+            font-weight: 400;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
             transition: color 0.2s ease;
         }
 
@@ -95,7 +116,7 @@
             align-items: center;
             justify-content: center;
             background: var(--midnight-navy);
-            padding: 8rem 2rem 6rem;
+            padding: 10rem 2rem 6rem;
         }
 
         .hero-content {
@@ -598,12 +619,14 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Logo Bar - Always visible, centered -->
+    <div class="logo-bar">
+        <img src="logo.png" alt="Possiblest">
+    </div>
+
+    <!-- Navigation Menu - Hides on scroll down -->
     <div class="nav-container" id="navbar">
         <nav>
-            <div class="logo">
-                <img src="logo.jpg" alt="Possiblest">
-            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -629,7 +652,7 @@
             <h2>Empowering Your Future</h2>
             <p>Possiblest is a progressive consulting firm that specializes in empowering businesses and educational institutions through innovative and tailored solutions.</p>
             <p>We collaborate with clients to drive results by integrating human-centric culture as the core enabler, ensuring sustainable growth and an unparalleled tomorrow.</p>
-            <p>Our approach combines strategic thought leadership with practical implementation, transforming possibilities into outcomes that matter.</p>
+            <p>Our approach combines strategic thinking with practical implementation, transforming possibilities into outcomes that matter.</p>
         </div>
         <div class="about-highlights fade-in">
             <div class="highlight-item">
@@ -659,7 +682,7 @@
             <div class="vm-card fade-in">
                 <span class="quote-mark">"</span>
                 <div class="vm-label">Our Mission</div>
-                <h3>To empower organizations to discover possibilities, innovate purpose-driven solutions, and transform challenges into sustainable growth through collaborative partnerships, technology, and human-centric learning.</h3>
+                <h3>To empower organizations to discover possibilities, innovate purpose-driven solutions, and transform challenges into sustainable growth through a collaborative partnerships, technology, and human-centric curious learning</h3>
             </div>
         </div>
     </section>
@@ -682,10 +705,10 @@
                     <p>Possiblest provides strategic consulting services, helping organizations navigate the ever-changing landscape by leveraging Human-Centric approach and technology to thrive and grow. We focus on digital transformation, operational efficiency, enterprise strategies alignment with business goals and organization culture.</p>
                     <ul>
                         <li>Technology Transformations</li>
-                        <li>Evolve Automations to Agentic AI Adoption</li>
+                        <li>Evolve Automation to Agentic AI Adoption</li>
                         <li>Enterprise IT footprint rationalization</li>
                         <li>Business Demand, Strategy and Scalability</li>
-                        <li>Organization Culture and Mindset</li>
+                        <li>Innovation Culture and Mindset</li>
                         <li>Enterprise Program and Supplier Management</li>
                         <li>Sustainability and Inclusive Community Growth</li>
                         <li>Competency Development and Succession Planning</li>
@@ -769,14 +792,28 @@
     </footer>
 
     <script>
-        // Navbar scroll effect
+        // Mercedes-Benz style: hide menu bar on scroll down, keep logo bar always visible
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        const scrollThreshold = 150;
+
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > scrollThreshold) {
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling down - hide menu bar
+                    navbar.classList.add('hide');
+                } else {
+                    // Scrolling up - show menu bar
+                    navbar.classList.remove('hide');
+                }
             } else {
-                navbar.classList.remove('scrolled');
+                // Near top - show menu bar
+                navbar.classList.remove('hide');
             }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
         // Scroll animation
